@@ -39,7 +39,7 @@ curl   -d "message=Congratulations YOU'VE Won. You're a Winner in our August 100
 ## EXPORT THE PMML MODEL
 
 With _pmml.py_ the model can be saved to a PMML file, that can be used in a JAVA based application. 
-See https://github.com/diegoami/jpmml-evaluator-bootstrap
+See http://github.com/diegoami/DA_spamdetector_scikit_pmml
 
 The logistic regression model delivers the following confusion matrix and an accuracy of 0.9937
 
