@@ -12,12 +12,12 @@ Simple Spam detector, to demonstrate publishing a text classifier that can be ac
 ## CREATE DOCKER CONTAINER
 
 To create and start a docker container execute the following commands.
-The PMML and model files are saved in a subdirectory `data` of the current directory
+The PMML and model files are saved in <YOUR_DATA_DIRECTORY> of the current directory
 
 ```
 mkdir -p <YOUR_DATA_DIRECTORY>
 docker build -t spam_detector . 
-docker run  -d -p 8000:8000 -v <YOUR_DATA_DIRECTORY>:/data spam_detector:latest
+docker run  -d -p 8000:8000 -v <YOUR_DATA_DIRECTORY>:/opt/data spam_detector:latest
 ```
 
 
