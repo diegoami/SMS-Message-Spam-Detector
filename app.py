@@ -1,11 +1,12 @@
 from flask import Flask, render_template, url_for, request
 from sklearn.externals import joblib
 from flask_restful import Resource, Api
+import os
 
-nm_spam_model = open('nm_spam_model.pkl', 'rb')
+nm_spam_model = open(os.path.join('data', 'nm_spam_model.pkl'), 'rb')
 clf_nm = joblib.load(nm_spam_model)
 
-lr_spam_model = open('lr_spam_model.pkl', 'rb')
+lr_spam_model = open(os.path.join('data', 'lr_spam_model.pkl'), 'rb')
 clf_lr = joblib.load(lr_spam_model)
 
 app = Flask(__name__)

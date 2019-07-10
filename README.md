@@ -11,12 +11,16 @@ Simple Spam detector, to demonstrate publishing a text classifier that can be ac
 
 ## CREATE DOCKER CONTAINER
 
-To create and start a docker container execute the following
+To create and start a docker container execute the following commands.
+The PMML and model files are saved in a subdirectory `data` of the current directory
 
 ```
+mkdir -p <YOUR_DATA_DIRECTORY>
 docker build -t spam_detector . 
-docker run  -d -p 8000:8000 spam_detector:latest
+docker run  -d -p 8000:8000 -v <YOUR_DATA_DIRECTORY>:/data spam_detector:latest
 ```
+
+
 
 ## ACCESS THE MODEL
 
@@ -35,3 +39,11 @@ curl   -d "message=Congratulations YOU'VE Won. You're a Winner in our August 100
 ## EXPORT THE PMML MODEL
 
 With _pmml.py_ the model can be saved to a PMML file, that can be used in a JAVA based application. 
+See https://github.com/diegoami/jpmml-evaluator-bootstrap
+
+The logistic regression model delivers the following confusion matrix and an accuracy of 0.9937
+
+|   |   |
+|---|---|
+|4822|3|
+|32|715|

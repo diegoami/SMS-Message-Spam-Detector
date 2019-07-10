@@ -1,5 +1,6 @@
 
 import pandas as pd
+import os
 
 from sklearn.feature_extraction.text import CountVectorizer, TfidfVectorizer
 
@@ -20,7 +21,8 @@ df['label'] = df['class'].map({'ham': 0, 'spam': 1})
 df.drop(['class'], axis=1, inplace=True)
 X = df['message']
 y = df['label']
-df.to_csv("spam_out.csv")
+df.to_csv( os.path.join('data', "spam_out.csv") )
+
 print("Saved simplified spam data to spam_out.csv")
 
 # Extract Feature With CountVectorizer
@@ -35,7 +37,7 @@ clf_nb = Pipeline(memory=None,
 def train_and_save_model(clf, model_name):
     print(f"====== {model_name} =========")
     X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=42)
-    # Naive Bayes Classifier
+
     clf.fit(X_train, y_train)
     print("Test Accuracy")
     print(clf.score(X_test, y_test))
@@ -56,5 +58,5 @@ def train_and_save_model(clf, model_name):
     print(f"Dumped model to {model_name}")
 
 
-train_and_save_model(clf_lr, "lr_spam_model.pkl")
-train_and_save_model(clf_nb, "nm_spam_model.pkl")
+train_and_save_model(clf_lr, os.path.join('data', "lr_spam_model.pkl"))
+train_and_save_model(clf_nb, os.path.join('data', "nm_spam_model.pkl"))

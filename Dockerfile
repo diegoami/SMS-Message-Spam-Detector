@@ -1,9 +1,12 @@
 FROM python:3
+RUN apt-get install default-jdk
+RUN pip install scikit-learn flask pandas flask-RESTFUL gunicorn sklearn2pmml
+RUN mkdir /data
 
+ADD spam.csv /
 ADD app.py /
 ADD save.py /
-ADD spam.csv /
+ADD pmml.py /
+ADD cmds.sh /
 
-RUN pip install scikit-learn flask pandas flask-RESTFUL gunicorn sklearn2pmml
-RUN python ./save.py
-CMD [ "gunicorn", "-w", "1",  "-b", "0.0.0.0:8000", "app:app" ]
+CMD [ "/bin/sh", "./cmds.sh" ]
