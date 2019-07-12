@@ -34,7 +34,7 @@ clf_nb = Pipeline(memory=None,
          steps=[('cv', CountVectorizer(tokenizer=Splitter())),
                 ('nm', MultinomialNB())], verbose=False)
 
-def train_and_save_model(clf, model_name):
+def train_and_save_model(clf, model_name, model_save_file):
     print(f"====== {model_name} =========")
     X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=42)
 
@@ -54,9 +54,9 @@ def train_and_save_model(clf, model_name):
     print(precision_score(y, y_pred), recall_score(y, y_pred), f1_score(y, y_pred))
     print("Overall Confusion Matrix")
     print(confusion_matrix(y, y_pred))
-    joblib.dump(clf, model_name)
+    joblib.dump(clf, model_save_file)
     print(f"Dumped model to {model_name}")
 
 
-train_and_save_model(clf_lr, os.path.join('data', "lr_spam_model.pkl"))
-train_and_save_model(clf_nb, os.path.join('data', "nm_spam_model.pkl"))
+train_and_save_model(clf_lr, "logistic_regression", os.path.join('data',"lr_spam_model.pkl"))
+train_and_save_model(clf_nb, "multinomial naive gaussian", os.path.join('data',"nm_spam_model.pkl"))
