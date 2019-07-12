@@ -2,8 +2,8 @@ from sklearn.externals import joblib
 from sklearn2pmml import make_pmml_pipeline
 import os
 
-NB_spam_model = open( os.path.join('data','lr_spam_model.pkl'), 'rb')
-clf = joblib.load(NB_spam_model)
+lr_spam_model = open( os.path.join('data','lr_spam_model.pkl'), 'rb')
+clf = joblib.load(lr_spam_model)
 
 
 from sklearn2pmml import sklearn2pmml
