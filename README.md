@@ -41,7 +41,7 @@ curl   -d "message=Congratulations YOU'VE Won. You're a Winner in our August 100
 With _pmml.py_ the model can be saved to a PMML file, that can be used in a JAVA based application. 
 See http://github.com/diegoami/DA_spamdetector_scikit_pmml
 
-The logistic regression model delivers the following confusion matrix and an accuracy of 0.9937
+The logistic regression model delivers the following confusion matrix and precision / recall on the test set of 0.98 / 0.86
 
 |   |   |
 |---|---|
