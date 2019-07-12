@@ -7,7 +7,7 @@ Simple Spam detector, to demonstrate publishing a text classifier that can be ac
 * Install a python local environment and the following libraries: `scikit-learn flask pandas flask-RESTFUL gunicorn sklearn2pmml`
 * Execute _save.py_ to create the pickle file for the classifier. Scoring will be saved to _save.out_
 * Execute _pmml.py_ to export the model to a pmml file
-* Execute _app.py_ to start a web service that can be accessed through a web call, or `_gunicorn -w 1 -b 0.0.0.0:8000 app:app_` to start a gunicorn server on port 8000
+* Execute _app.py_ to start a web service that can be accessed through a web call, or `gunicorn -w 1 -b 0.0.0.0:8000 app:app` to start a gunicorn server on port 8000
 
 ## CREATE DOCKER CONTAINER
 
