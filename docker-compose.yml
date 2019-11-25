@@ -1,0 +1,9 @@
+version: '3'
+services:
+  web:
+    build: .
+    image: spam_detector
+    ports:
+      - "8000:8000"
+    volumes:
+      - ./data:/opt/data
